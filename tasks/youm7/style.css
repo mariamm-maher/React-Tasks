@@ -1,0 +1,10 @@
+body {
+  background-image: url("images/bg.jpeg");
+  background-color: #cccccc;
+  background-repeat: repeat-x;
+  background-color: rgb(194, 30, 29);
+  direction: rtl;
+}
+/* .top-header{
+
+} */

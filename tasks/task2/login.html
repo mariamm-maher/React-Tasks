@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #003044;
+        color: #ddeff8;
+      }
+
+      header {
+        height: 70px;
+        width: auto;
+        background: linear-gradient(to right, #003044, #005b33);
+        padding: 10px 20px;
+        /* flex */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .CompanyName {
+        font-family: "Playwrite CU", cursive;
+      }
+      header a {
+        color: #ddeff8;
+        margin: 0 10px;
+        text-decoration: none;
+      }
+
+      nav a:hover {
+        color: #09dc77;
+      }
+      .SM_ICON {
+        margin-left: 15px;
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+
+      .SM_ICON:hover {
+        transform: scale(1.1);
+        color: #09dc77;
+      }
+      /* login box style */
+      .login-box {
+        width: 400px;
+        height: 500px;
+        margin: 20px auto;
+        border-radius: 20px;
+        /* border: 2px solid black; */
+        padding: 10px;
+        text-align: center;
+        box-shadow: 3px 3px 20px #09dc77;
+      }
+      .login {
+        font-family: "Playwrite CU", cursive;
+        font-optical-sizing: auto;
+        font-style: normal;
+        text-shadow: 2px 3px 5px #09dc77;
+        margin-top: 20px;
+      }
+      #userName,
+      #password {
+        padding: 10px;
+        width: 200px;
+        height: 20px;
+        border-radius: 10px;
+        border: none;
+        margin: 10px;
+        box-shadow: 3px 3px 20px #09dc77;
+      }
+      #errorMsg {
+        color: red;
+      }
+      .inputs {
+        margin-top: 100px;
+      }
+      #login-btn {
+        /* mine */
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        width: 150px;
+        height: 36px;
+        color: #ddeff8;
+        border: none;
+        border-radius: 10px;
+        /* chatgpt suggestions */
+        background: linear-gradient(#09dc77, #007344);
+        cursor: pointer;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 0 10px #09dc77;
+        transition: all 0.3s ease;
+      }
+
+      #login-btn:hover {
+        background: linear-gradient(45deg, #007344, #09dc77);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1), 0 0 20px #09dc77;
+        transform: translateY(-3px);
+      }
+
+      #login-btn:active {
+        background: linear-gradient(45deg, #005b33, #007344);
+        transform: translateY(1px);
+      }
+    </style>
+    <script>
+      let userNames = ["ahmed", "mariam", "amir", "admin", "tarek"];
+      let passwords = ["123", "456", "789", "admin", "pass"];
+      // the function check over the empty input
+      function check() {
+        var userName = document.getElementById("userName").value;
+        var password = document.getElementById("password").value;
+        if (userName == "" || password == "") {
+          errorMsg.innerHTML = "Please enter both username and password";
+          return false;
+        } else {
+          errorMsg.innerHTML = "";
+          return true;
+        }
+      }
+      function validate() {
+        var userName = document.getElementById("userName").value;
+        var password = document.getElementById("password").value;
+        if (check()) {
+          let u = 0;
+          let p = 0;
+          for (let i = 0; i < userNames.length; i++) {
+            if (userName == userNames[i]) {
+              u++;
+            }
+            if (password == passwords[i]) {
+              p++;
+            }
+          }
+          if (u && p) {
+            window.location.href = "grid.html";
+          } else if (u > 0 && p == 0) {
+            errorMsg.innerHTML = " incorrect password , try again";
+          } else {
+            errorMsg.innerHTML = "incorrect username , try again";
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1 class="CompanyName">GPA</h1>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="social-media">
+        <a href="#" class="SM_ICON"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="SM_ICON"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="SM_ICON"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="SM_ICON"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="SM_ICON"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </header>
+    <div class="login-box">
+      <h1 class="login">Login</h1>
+      <div class="inputs">
+        <p id="errorMsg"></p>
+        <input type="text" id="userName" placeholder="User Name" /><br />
+        <input type="text" id="password" placeholder="password" /><br />
+        <input
+          type="button"
+          id="login-btn"
+          value="Submit"
+          onClick="validate()"
+        />
+      </div>
+    </div>
+  </body>
+</html>

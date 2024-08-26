@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <title>GPA Calculator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-areas:
+          "header header header"
+          "nav article aside"
+          "footer footer footer";
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: auto 1fr auto;
+        height: 100vh;
+        gap: 10px;
+        background-color: #003044;
+        color: #ddeff8;
+      }
+      header {
+        grid-area: header;
+        height: 70px;
+        width: auto;
+        background: linear-gradient(to right, #003044, #005b33);
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .CompanyName {
+        font-family: "Playwrite CU", cursive;
+      }
+      header a {
+        color: #ddeff8;
+        margin: 0 10px;
+        text-decoration: none;
+      }
+      article {
+        grid-area: article;
+        padding: 20px;
+        background-color: #003044;
+      }
+      footer {
+        grid-area: footer;
+        background: #003044;
+        color: white;
+        text-align: center;
+        padding: 10px;
+      }
+      a {
+        text-decoration: none;
+        color: #333;
+      }
+      a:hover {
+        color: #4caf50;
+      }
+      nav a:hover {
+        color: #09dc77;
+      }
+      .SM_ICON {
+        margin-left: 15px;
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+      .SM_ICON:hover {
+        transform: scale(1.1);
+        color: #09dc77;
+      }
+      .article-box {
+        width: 400px;
+        height: 500px;
+        margin: 20px auto;
+        border-radius: 20px;
+        padding: 10px;
+        text-align: center;
+        box-shadow: 3px 3px 20px #09dc77;
+      }
+      input[type="text"] {
+        box-sizing: border-box;
+        padding: 10px;
+        width: 200px;
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        margin: 10px;
+        box-shadow: 3px 3px 20px #09dc77;
+      }
+      #login-btn {
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        width: 150px;
+        height: 36px;
+        color: #ddeff8;
+        border: none;
+        border-radius: 10px;
+        background: linear-gradient(#09dc77, #007344);
+        cursor: pointer;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 0 10px #09dc77;
+        transition: all 0.3s ease;
+      }
+      #login-btn:hover {
+        background: linear-gradient(45deg, #007344, #09dc77);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1), 0 0 20px #09dc77;
+        transform: translateY(-3px);
+      }
+      #login-btn:active {
+        background: linear-gradient(45deg, #005b33, #007344);
+        transform: translateY(1px);
+      }
+      h2 {
+        font-family: "Playwrite CU", cursive;
+        font-optical-sizing: auto;
+        font-style: normal;
+        text-shadow: 2px 3px 5px #09dc77;
+        margin-top: 20px;
+      }
+      aside {
+        grid-area: aside;
+        background-color: #003044;
+        padding: 20px;
+        color: white;
+      }
+      .result-box {
+        width: 250px;
+        height: 200px;
+        margin: 20px auto;
+        padding: 20px;
+        text-align: center;
+        background-color: #005b33;
+        border-radius: 20px;
+        box-shadow: 3px 3px 20px #09dc77;
+      }
+      .result-box p {
+        font-size: 20px;
+        font-weight: bold;
+        margin: 10px 0;
+      }
+    </style>
+    <script>
+      function calculate() {
+        let arabic = parseFloat(document.getElementById("arabic").value);
+        let english = parseFloat(document.getElementById("english").value);
+        let math = parseFloat(document.getElementById("math").value);
+        let science = parseFloat(document.getElementById("science").value);
+        let total = arabic + english + math + science;
+        // total.innerHTML = total;
+        let avg = total / 4;
+        // avg.innerHTML = avg;
+        alert(total);
+        alert(avg);
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1 class="CompanyName">GPA</h1>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="social-media">
+        <a href="#" class="SM_ICON"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="SM_ICON"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="SM_ICON"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="SM_ICON"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="SM_ICON"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </header>
+    <article class="article-box">
+      <h2>Enter Your Marks</h2>
+      <form id="gpaForm">
+        <input
+          type="text"
+          id="arabic"
+          name="arabic"
+          placeholder="Arabic"
+        /><br />
+        <input
+          type="text"
+          id="english"
+          name="english"
+          placeholder="English"
+        /><br />
+        <input type="text" id="math" name="math" placeholder="Math" /><br />
+        <input
+          type="text"
+          id="science"
+          name="science"
+          placeholder="Science"
+        /><br />
+        <input
+          type="submit"
+          id="login-btn"
+          value="Calculate"
+          onClick="calculate()"
+        />
+      </form>
+    </article>
+    <aside class="result-box">
+      <p class="result">Your Result.</p>
+      <p id="total">Total :</p>
+      <p id="avg">average :</p>
+      <p id="grade">grade :</p>
+    </aside>
+    <footer>
+      <p>&copy; 2024 GPA Calculator. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
